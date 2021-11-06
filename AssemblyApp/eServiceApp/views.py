@@ -6,7 +6,7 @@ from .models import CropInsModel
 # Create your views here.
 
 
-def eservice(request):
+def crop_view(request):
     crop = None
     if request.method == 'POST':
         crop = CropIns.CropIns()
@@ -21,3 +21,14 @@ def eservice(request):
         print('save into db successfully!')
 
     return render(request, 'eservice/cropinscalc.html', {'crop': crop})
+
+
+def pathira_pathivu(request):
+    return render(request, 'eservice/pathira_pathivu.html')
+
+
+def varisu_sandrithal(request):
+    return render(request, 'eservice/varisu_sandrithal.html')
+
+def pmfby_view(request):
+    return render(request, 'eservice/pmfby.html')

@@ -16,7 +16,9 @@ Including another urlconf
 from django.urls import path
 from . import views
 
-
 urlpatterns = [
-    path('/', views.eservice)
+    path('cropins', views.crop_view),
+    path('varisu', views.varisu_sandrithal),
+    path('pathiram', views.pathira_pathivu),
+    path('pmfby', views.pmfby_view)
 ]

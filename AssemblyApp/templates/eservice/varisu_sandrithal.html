@@ -1,0 +1,90 @@
+{% extends "eservice/base.html" %}
+{% block body %}
+<div class="container">
+    <h2 class="text-center">வாரிசு சான்றிதல் </h2>
+
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="txtDead">இறந்தவர்</label>
+                <input class="form-check-input" id="chkMarriage" type="checkbox">
+                <label class="form-check-label" for="chkMarriage">
+                    திருமணம்?
+                </label>
+                <select class="form-control" id="txtDead">
+                    <option>--தேர்வு செய்--</option>
+                    <option>ஆண்</option>
+                    <option>பெண்</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="name">பெயர்</label>
+                <input class="form-control" id="name" placeholder="பெயர்" type="text">
+            </div>
+
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-10">
+
+                <label for="ddlRelation">துணைவர்</label>
+                <input class="form-check-input" id="chkDep" type="checkbox">
+                <label class="form-check-label" for="chkDep">
+                    இறந்தவர்?
+                </label>
+                <select class="form-control" id="ddlRelation">
+                    <option>--தேர்வு செய்--</option>
+                    <option>கணவன்</option>
+                    <option>மனைவி</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-10">
+                <label for="depName">துணைவர் பெயர்</label>
+                <input class="form-control" id="depName" placeholder="துணைவர் பெயர்" type="text">
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="appaName">appa பெயர்</label>
+                <input class="form-control" id="appaName" placeholder="appa பெயர்" type="text">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="ammaName">appa பெயர்</label>
+                <input class="form-control" id="ammaName" placeholder="amma பெயர்" type="text">
+            </div>
+
+
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" id="inputAddress" placeholder="1234 Main St" type="text">
+        </div>
+
+        <div class="form-group">
+            <label for="inputAddress2">Address 2</label>
+            <input class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"
+                   type="text">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input class="form-control" id="inputCity" type="text">
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input class="form-control" id="inputZip" type="text">
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Sign in</button>
+    </form>
+
+
+    {% endblock body %}

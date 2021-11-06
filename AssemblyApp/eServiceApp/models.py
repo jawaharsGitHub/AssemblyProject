@@ -11,3 +11,5 @@ class CropInsModel(models.Model):
     total_parappu = models.CharField(max_length=30)
     device_name = models.CharField(max_length=50, default='')
 
+    def __str__(self):
+        return f"{self.device_name}-{self.total_parappu}-{self.round_amount}"

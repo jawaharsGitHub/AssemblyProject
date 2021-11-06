@@ -4,14 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5379aab3-f49d-4e14-a1dc-f5aebf900c0e" name="Changes" comment="first working python website - development server">
+    <list default="true" id="5379aab3-f49d-4e14-a1dc-f5aebf900c0e" name="Changes" comment="consider 1.50 also instead 1.50.00">
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/static/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/pathira_pathivu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/pmfby.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblyApp/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/CropIns.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/CropIns.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/eservice/cropinscalc.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/cropinscalc.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +44,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="20SXreqhPs5DqWwnn4rv1wGVfvD" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,7 +56,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AssemblyApp/manage.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/AssemblyApp/templates/eservice" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="PyDebuggerOptionsProvider">
@@ -56,6 +64,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\PyProject\AssemblyApp\templates\eservice" />
       <recent name="F:\PyProject\AssemblyApp\adangalApp" />
       <recent name="F:\PyProject\AssemblyApp\eServiceApp" />
     </key>
@@ -106,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636141558227</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="consider 1.50 also instead 1.50.00">
+      <created>1636220150183</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1636220150183</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,27 +140,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adangal app" />
     <MESSAGE value="first working python website - development server" />
-    <option name="LAST_COMMIT_MESSAGE" value="first working python website - development server" />
+    <MESSAGE value="consider 1.50 also instead 1.50.00" />
+    <option name="LAST_COMMIT_MESSAGE" value="consider 1.50 also instead 1.50.00" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/AssemblyApp/eServiceApp/CropIns.py</url>
-          <line>21</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/AssemblyApp/eServiceApp/CropIns.py</url>
-          <line>51</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/AssemblyApp/eServiceApp/CropIns.py</url>
-          <line>37</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

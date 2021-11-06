@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+admin.site.site_header = "தமிழன் செயலி" #தமிழன் செயலிக்கு வரவேற்கிறோம்"
+admin.site.site_title = "தமிழன் செயலி" #வணக்கம் - தமிழன் செயலிக்கு"
+admin.site.index_title = "தமிழன் செயலி" #தமிழன் செயலி"
+
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    #path('/', include('eServiceApp.urls')),
-    path('eservice', include('eServiceApp.urls')),
+    path('eservice/', include('eServiceApp.urls')),
     path('adangal', include('adangalApp.urls'))
 ]
