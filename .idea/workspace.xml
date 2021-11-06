@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5379aab3-f49d-4e14-a1dc-f5aebf900c0e" name="Changes" comment="consider 1.50 also instead 1.50.00">
-      <change afterPath="$PROJECT_DIR$/AssemblyApp/static/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/pathira_pathivu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/pmfby.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" afterDir="false" />
+    <list default="true" id="5379aab3-f49d-4e14-a1dc-f5aebf900c0e" name="Changes" comment="Template Inheritance and few eservice links">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/eservice/cropinscalc.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/cropinscalc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636220150183</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Template Inheritance and few eservice links">
+      <created>1636235812410</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1636235812410</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,7 +137,8 @@
     <MESSAGE value="adangal app" />
     <MESSAGE value="first working python website - development server" />
     <MESSAGE value="consider 1.50 also instead 1.50.00" />
-    <option name="LAST_COMMIT_MESSAGE" value="consider 1.50 also instead 1.50.00" />
+    <MESSAGE value="Template Inheritance and few eservice links" />
+    <option name="LAST_COMMIT_MESSAGE" value="Template Inheritance and few eservice links" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
