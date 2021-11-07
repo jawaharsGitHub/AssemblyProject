@@ -1,90 +1,367 @@
 {% extends "eservice/base.html" %}
 {% block body %}
-<div class="container">
-    <h2 class="text-center">வாரிசு சான்றிதல் </h2>
 
-    <form>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="txtDead">இறந்தவர்</label>
-                <input class="form-check-input" id="chkMarriage" type="checkbox">
-                <label class="form-check-label" for="chkMarriage">
+<h2 class="text-center">வாரிசு சான்றிதல் </h2>
+
+<script>
+
+var Relation = {
+   NONE: -1,
+   gp: 0,
+   appa: 1,
+   amma: 2,
+   Self: 3,
+   dep: 4,
+   SON: 5,
+   DAUGHTER: 6
+};
+
+let personTypes = {'gp':'0', 'appa':'1', 'amma':'2', 'Self':'3', 'dep':'4'};
+
+class Varisu {
+  constructor(name, age, isMarried, isDeath, relation, depname) {
+
+    this.name = name;
+    this.depname = depname;
+    this.age = age;
+    this.relation = relation;
+    this.isMarried = isMarried;
+    this.isDeath = isDeath;
+
+  }
+
+}
+
+
+function get_row_template(object)
+{
+
+return  `
+         <tr>
+      <td scope="col">[sno]</td>
+      <td scope="col">[name]</td>
+      <td scope="col">[husband]</td>
+      <td scope="col">[age]</th>
+        <td scope="col">[relation]</th>
+      <th scope="col">[marriage]</th>
+    </tr>
+    `
+}
+
+function CreateTemplate(index)
+{
+
+return  `
+        <div class="row">
+                <div class="col-md-2">
+                   <select class="form-control" id="rel${index}Name">
+                    <option value="0">--தேர்வு செய்--</option>
+                    <option value="5">மகன்</option>
+                    <option value="6">மகள்</option>
+                 </select>
+                </div>
+                <div class="col-md-3">
+                    <input class="form-control" id="son${index}Name" placeholder="son${index}Name" type="text">
+                </div>
+                <div class="col-md-1">
+                    <input class="form-control" id="son${index}year" placeholder="son${index}year" type="text" onblur="CalculateAge(this.id);">
+                </div>
+                <div class="col-md-1">
+                    <input class="form-control" id="son${index}age" placeholder="son${index}age" type="text">
+                </div>
+                <div class="col-md-2">
+                    <input class="form-check-input" id="son${index}mrg" type="checkbox" checked="checked">
+                    <label class="form-check-label" for="son1mrg">
+                        திருமணம்?
+                    </label>
+
+                </div>
+                <div class="col-md-2">
+                    <input class="form-check-input" id="son${index}Status" type="checkbox">
+                    <label class="form-check-label" for="son1Status">
+                        இறந்தவர்?
+                    </label>
+
+                </div>
+            </div>
+    `
+}
+
+function CalculateAge(ctrlId)
+    {
+    var v = $("#"+ctrlId).val().trim();
+
+        if (v != '') {
+        const d = new Date();
+       var ageId = ctrlId.replace('year','age');
+
+        let year = d.getFullYear();
+            $("#"+ageId).val(year - v);
+        }
+    }
+
+function FormObject() {
+   var obj = $("#childrens").children("div");
+
+    var box = {}; // my object
+    var boxes =  []; // my array
+
+     box = new Varisu($("#gp_name").val(),
+      $("#gp_age").val(),
+      true,
+      $("#gp_isDead").prop("checked"),
+      Relation.gp);
+      boxes.push(box);
+
+
+       box = new Varisu($("#appa_name").val(),
+      $("#appa_age").val(),
+      true,
+      $("#appa_isDead").prop("checked"),
+      Relation.appa,
+      $("#gp_name").val());
+      boxes.push(box);
+
+       box = new Varisu($("#amma_name").val(),
+      $("#amma_age").val(),
+      true,
+      $("#amma_isDead").prop("checked"),
+      Relation.amma,
+      $("#appa_name").val());
+    boxes.push(box);
+
+    box = new Varisu($("#self_name").val(),
+      $("#self_age").val(),
+      $("#self_isMarried").prop("checked"),
+      true,
+      Relation.Self,
+      $("#appa_name").val());
+
+    boxes.push(box);
+
+    box = new Varisu($("#dep_name").val(),
+      $("#dep_age").val(),
+      true,
+      $("#dep_isDead").prop("checked"),
+      Relation.dep,
+      $("#self_name").val());
+      boxes.push(box);
+
+
+    for (let i = 0; i < obj.length; i++) {
+      box = new Varisu($("#son"+(i+1)+"Name").val(),
+      $("#son"+(i+1)+"age").val(),
+      $("#son"+(i+1)+"mrg").prop("checked"),
+      $("#son"+(i+1)+"Status").prop("checked"),
+      $("#rel"+(i+1)+"Name").val(),
+      $("#self_name").val());
+      boxes.push(box);
+    }
+<!--     alert(JSON.stringify(boxes));-->
+
+     $.get('varisu_temp', function(data) {
+
+
+                var dataToReplace = '';
+
+
+
+                for (let i = 1; i < boxes.length; i++) {
+                    var row = get_row_template();
+                    row = row.replace('[sno]', i)
+                                .replace('[name]', boxes[i].name)
+                                .replace('[husband]', boxes[i].depname)
+                                .replace('[age]', boxes[i].age)
+                                .replace('[relation]', boxes[i].relation)
+                                .replace('[marriage]', boxes[i].isMarried ? "திருமணமானவர்" : "இல்லை");
+                    dataToReplace = dataToReplace.concat(row)
+                }
+
+                data = data.replace('[data]',dataToReplace);
+
+                var winPrint = window.open('', '', width=800,height=600,toolbar=0);
+		        winPrint.document.write(data);
+
+
+});
+
+
+}
+
+    $(function () {
+
+    var template = $('#hidden-template').html();
+
+    $('#childCount').blur(function() {
+        var  childCount = $("#childCount").val();
+        for (let i = 0; i < childCount; i++) {
+      $('#childrens').append(CreateTemplate(i+1));
+    }
+    });
+
+    $('#btnGenerate').click(function() {
+        FormObject();
+    });
+
+
+
+    $('#self_isMarried').change(function () {
+        if ($(this).is(':checked')) {
+            $("#mrgStatus").show();
+        } else {
+            $("#mrgStatus").hide();
+        }
+    });
+
+    $('#self_gender').change(function () {
+        selValue = $('#self_gender').val();
+
+        if (selValue == 1) {
+            $("#depLabel").text('துணைவி');
+            $("#depNameLabel").text('துணைவி பெயர்');
+            $('#ddlRelation').val(2);
+        } else if (selValue == 2) {
+            $("#depLabel").text('துணைவர்');
+            $("#depNameLabel").text('துணைவர் பெயர்');
+            $('#ddlRelation').val(1);
+        }
+        else
+        {
+        }
+    });
+
+
+
+
+});
+
+
+</script>
+<form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                 <label for="dep_adhar">ஆதார் எண்</label>
+                <input class="form-control" id="dep_adhar" placeholder="ஆதார் எண்" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label><b>இறந்தவர்</b></label>
+                <input class="form-check-input" id="self_isMarried" type="checkbox" checked="checked">
+                <label class="form-check-label" for="self_isMarried">
                     திருமணம்?
                 </label>
-                <select class="form-control" id="txtDead">
-                    <option>--தேர்வு செய்--</option>
-                    <option>ஆண்</option>
-                    <option>பெண்</option>
+                <select class="form-control" id="self_gender">
+                    <option value="0">--தேர்வு செய்--</option>
+                    <option value="1">ஆண்</option>
+                    <option value="2">பெண்</option>
                 </select>
             </div>
-
-            <div class="form-group col-md-6">
-                <label for="name">பெயர்</label>
-                <input class="form-control" id="name" placeholder="பெயர்" type="text">
+            <div class="col-md-3">
+                <label for="self_name">இறந்தவர் பெயர்</label>
+                <input class="form-control" id="self_name" placeholder="பெயர்" type="text">
             </div>
-
+            <div class="col-md-3">
+                <label for="self_year"> </label>
+                <input class="form-control" id="self_year" placeholder="birthYear" type="text" onblur="CalculateAge(this.id);">
+            </div>
+            <div class="col-md-3">
+                <label for="self_age"> </label>
+                <input class="form-control" id="self_age" placeholder="age" type="text">
+            </div>
         </div>
 
-        <div class="form-row">
-            <div class="form-group col-md-6">
-
-                <label for="ddlRelation">துணைவர்</label>
-                <input class="form-check-input" id="chkDep" type="checkbox">
-                <label class="form-check-label" for="chkDep">
+        <div class="row" id="mrgStatus">
+            <div class="col-md-3">
+                <label for="ddlRelation" id="depLabel">துணைவர்</label>
+                <input class="form-check-input" id="dep_isDead" type="checkbox">
+                <label class="form-check-label" for="dep_isDead">
                     இறந்தவர்?
                 </label>
                 <select class="form-control" id="ddlRelation">
-                    <option>--தேர்வு செய்--</option>
-                    <option>கணவன்</option>
-                    <option>மனைவி</option>
+                    <option value="0">--தேர்வு செய்--</option>
+                    <option value="1">கணவன்</option>
+                    <option value="2">மனைவி</option>
                 </select>
             </div>
-
-            <div class="form-group col-md-6">
-                <label for="depName">துணைவர் பெயர்</label>
-                <input class="form-control" id="depName" placeholder="துணைவர் பெயர்" type="text">
+            <div class="col-md-3">
+                <label for="dep_name" id="depNameLabel">துணைவர் பெயர்</label>
+                <input class="form-control" id="dep_name" placeholder="துணைவர் பெயர்" type="text">
             </div>
+            <div class="col-md-3">
+                <label for="dep_year"> </label>
+                <input class="form-control" id="dep_year" placeholder="depBirthYear" type="text" onblur="CalculateAge(this.id);">
+            </div>
+            <div class="col-md-3">
+                <label for="dep_age"> </label>
+                <input class="form-control" id="dep_age" placeholder="depAge" type="text">
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+                <label for="gp_name">தாத்தா பெயர்</label>
+                <input class="form-control" id="gp_name" placeholder="தாத்தா பெயர்" type="text">
+            </div>
+            <div class="col-md-3">
+                <label for="gp_year"> </label>
+                <input class="form-control" id="gp_year" placeholder="grandpaBirthYear" type="text" onblur="CalculateAge(this.id);">
+            </div>
+            <div class="col-md-3">
+                <label for="gp_age"> </label>
+                <input class="form-control" id="gp_age" placeholder="grandpaAge" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+                <label for="appa_name">அப்பா பெயர்</label>
+                <input class="form-control" id="appa_name" placeholder="அப்பா பெயர்" type="text">
+            </div>
+            <div class="col-md-3">
+                <label for="appa_year"> </label>
+                <input class="form-control" id="appa_year" placeholder="appaBirthYear" type="text" onblur="CalculateAge(this.id);">
+            </div>
+            <div class="col-md-3">
+                <label for="appa_age"> </label>
+                <input class="form-control" id="appa_age" placeholder="appaAge" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+                <label for="amma_name">அம்மா பெயர்</label>
+                <input class="form-control" id="amma_name" placeholder="appa பெயர்" type="text">
+            </div>
+            <div class="col-md-3">
+                <label for="amma_year"> </label>
+                <input class="form-control" id="amma_year" placeholder="ammaBirthYear" type="text" onblur="CalculateAge(this.id);">
+            </div>
+            <div class="col-md-3">
+                <label for="amma_age"> </label>
+                <input class="form-control" id="amma_age" placeholder="ammaAge" type="text">
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-2"><label for="childCount">பிள்ளைகள்?</label> <input class="form-control" id="childCount"
+                                                                                    placeholder="childCount"
+                                                                                    type="text"></div>
+        </div>
+        <div class="container" id="childrens">
 
         </div>
 
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="appaName">appa பெயர்</label>
-                <input class="form-control" id="appaName" placeholder="appa பெயர்" type="text">
-            </div>
-
-            <div class="form-group col-md-6">
-                <label for="ammaName">appa பெயர்</label>
-                <input class="form-control" id="ammaName" placeholder="amma பெயர்" type="text">
-            </div>
+        <button class="btn btn-primary" type="button" id="btnGenerate">CREATE</button>
+    </div>
+</form>
 
 
-        </div>
-
-        <div class="form-group">
-            <input class="form-control" id="inputAddress" placeholder="1234 Main St" type="text">
-        </div>
-
-        <div class="form-group">
-            <label for="inputAddress2">Address 2</label>
-            <input class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"
-                   type="text">
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input class="form-control" id="inputCity" type="text">
-            </div>
-
-            <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input class="form-control" id="inputZip" type="text">
-            </div>
-        </div>
-
-        <button class="btn btn-primary" type="submit">Sign in</button>
-    </form>
-</div>
-
-    {% endblock body %}
+{% endblock body %}

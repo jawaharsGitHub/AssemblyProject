@@ -19,6 +19,7 @@ from . import views
 urlpatterns = [
     path('cropins', views.crop_view),
     path('varisu', views.varisu_sandrithal),
+    path('varisu_temp', views.varisu_sandrithal_temp),
     path('pathiram', views.pathira_pathivu),
     path('pmfby', views.pmfby_view)
 ]

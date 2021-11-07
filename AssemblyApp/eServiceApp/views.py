@@ -23,12 +23,18 @@ def crop_view(request):
     return render(request, 'eservice/cropinscalc.html', {'crop': crop})
 
 
+def varisu_sandrithal(request):
+    return render(request, 'eservice/varisu_sandrithal.html')
+
+def varisu_sandrithal_temp(request):
+    return render(request, 'eservice/varisu_sandrithal_temp.html')
+
+
 def pathira_pathivu(request):
     return render(request, 'eservice/pathira_pathivu.html')
 
 
-def varisu_sandrithal(request):
-    return render(request, 'eservice/varisu_sandrithal.html')
+
 
 def pmfby_view(request):
     return render(request, 'eservice/pmfby.html')

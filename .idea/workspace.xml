@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5379aab3-f49d-4e14-a1dc-f5aebf900c0e" name="Changes" comment="Template Inheritance and few eservice links">
+    <list default="true" id="5379aab3-f49d-4e14-a1dc-f5aebf900c0e" name="Changes" comment="design fix added end div">
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/baseprint.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal_temp.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -118,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636235812410</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="design fix added end div">
+      <created>1636235969232</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1636235969232</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,7 +149,8 @@
     <MESSAGE value="first working python website - development server" />
     <MESSAGE value="consider 1.50 also instead 1.50.00" />
     <MESSAGE value="Template Inheritance and few eservice links" />
-    <option name="LAST_COMMIT_MESSAGE" value="Template Inheritance and few eservice links" />
+    <MESSAGE value="design fix added end div" />
+    <option name="LAST_COMMIT_MESSAGE" value="design fix added end div" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
