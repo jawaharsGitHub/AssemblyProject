@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5379aab3-f49d-4e14-a1dc-f5aebf900c0e" name="Changes" comment="design fix added end div">
-      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/baseprint.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal_temp.html" afterDir="false" />
+    <list default="true" id="5379aab3-f49d-4e14-a1dc-f5aebf900c0e" name="Changes" comment="varisu saandrithal - 70% done">
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/commonApp/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/electionApp/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/govtApp/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/partyApp/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/schoolApp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/LearningApp/modname.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/LearningApp/modname.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +52,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AssemblyApp/templates/eservice" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/AssemblyApp/schoolApp" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="PyDebuggerOptionsProvider">
@@ -57,12 +60,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\PyProject\AssemblyApp\templates\eservice" />
-      <recent name="F:\PyProject\AssemblyApp\adangalApp" />
-      <recent name="F:\PyProject\AssemblyApp\eServiceApp" />
+      <recent name="F:\PyProject\AssemblyApp\schoolApp" />
+      <recent name="F:\PyProject\AssemblyApp\partyApp" />
+      <recent name="F:\PyProject\AssemblyApp\govtApp" />
+      <recent name="F:\PyProject\AssemblyApp\commonApp" />
+      <recent name="F:\PyProject\AssemblyApp\electionApp" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.AssemblyApp">
     <configuration name="AssemblyApp" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -84,6 +89,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="modname" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Users\WelCome\AppData\Local\Programs\Python\Python310\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/AssemblyApp/LearningApp" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AssemblyApp/LearningApp/modname.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.modname" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -129,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636235969232</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="varisu saandrithal - 70% done">
+      <created>1636326402974</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1636326402974</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,7 +185,8 @@
     <MESSAGE value="consider 1.50 also instead 1.50.00" />
     <MESSAGE value="Template Inheritance and few eservice links" />
     <MESSAGE value="design fix added end div" />
-    <option name="LAST_COMMIT_MESSAGE" value="design fix added end div" />
+    <MESSAGE value="varisu saandrithal - 70% done" />
+    <option name="LAST_COMMIT_MESSAGE" value="varisu saandrithal - 70% done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -13,3 +13,8 @@ class Bus:
         print('do action')
         self.i = 45
 
+class Employee:
+    pass
+
+
+

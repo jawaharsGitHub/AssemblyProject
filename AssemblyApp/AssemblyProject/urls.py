@@ -24,6 +24,11 @@ admin.site.index_title = "தமிழன் செயலி" #தமிழன�
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('eservice/', include('eServiceApp.urls')),
-    path('adangal', include('adangalApp.urls'))
+    path('eservice', include('eServiceApp.urls')),
+    path('adangal', include('adangalApp.urls')),
+    path('election', include('electionApp.urls')),
+    path('school', include('schoolApp.urls')),
+    path('party', include('partyApp.urls')),
+    path('government', include('govtApp.urls')),
+    path('common', include('commonApp.urls'))
 ]
