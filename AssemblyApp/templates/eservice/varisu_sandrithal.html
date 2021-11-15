@@ -1,16 +1,86 @@
 {% extends "eservice/base.html" %}
 {% block body %}
 
-<h2 class="text-center">வாரிசு சான்றிதல் </h2>
+
+<!--scenario:-->
+<!--1. appa  son-->
+<!--   appa  daughter-->
+<!--   appa  wife-->
+<!--2. amma  son-->
+<!--   amma  daughter-->
+<!--   amma  wife-->
+<!--3. son  appa/amma-->
+<!--4. daughter  appa/amma-->
+<!--5. wife/husband  husband/wife-->
+
+<!--6. non married-->
+
+
 
 <script>
+
+var isMale;
+var isMarried;
+
+
+$(document).ready(function() {
+    $('#frmVarisu').bootstrapValidator({
+        container: '#messages',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            dep_adhar: {
+                validators: {
+                    notEmpty: {
+                        message: 'Adhar number is required and cannot be empty'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required and cannot be empty'
+                    },
+                    emailAddress: {
+                        message: 'The email address is not valid'
+                    }
+                }
+            },
+            title: {
+                validators: {
+                    notEmpty: {
+                        message: 'The title is required and cannot be empty'
+                    },
+                    stringLength: {
+                        max: 100,
+                        message: 'The title must be less than 100 characters long'
+                    }
+                }
+            },
+            content: {
+                validators: {
+                    notEmpty: {
+                        message: 'The content is required and cannot be empty'
+                    },
+                    stringLength: {
+                        max: 500,
+                        message: 'The content must be less than 500 characters long'
+                    }
+                }
+            }
+        }
+    });
+});
 
 var Relation = {
    NONE: -1,
    gp: 0,
-   appa: 1,
-   amma: 2,
-   Self: 3,
+   appa: "அப்பா",
+   amma: "அம்மா",
+   Self: "இறந்தவர்",
    dep: 4,
    SON: 5,
    DAUGHTER: 6
@@ -100,72 +170,149 @@ function CalculateAge(ctrlId)
         }
     }
 
+function DeadGenderScenario()
+{
+    if($("#self_gender").val() == 1 ||  ($("#self_gender").val() == 2 && $("#self_isMarried").prop("checked") == false))
+    {
+        $("#appa_div").show();
+        $("#amma_div").show();
+    }
+    else
+    {
+        $("#appa_div").hide();
+        $("#amma_div").hide();
+    }
+}
+
+function getSelfLastName()
+{
+    var d;
+
+    if(isMale)
+    {
+        d =  $("#appa_name").val();
+    }
+    else if(isMale == false)
+     {
+        if(isMarried == false)
+        {
+            d =  $("#appa_name").val();
+        }
+        else if(isMale == false && isMarried)
+        {
+            d =  $("#dep_name").val();
+        }
+     }
+    return d;
+
+}
+
+function getDepLastName()
+    {
+        var d;
+
+        if(isMale)
+            d =  $("#appa_name").val();
+        else
+           d =  $("#gp_name").val();
+
+        return d;
+
+    }
+
+function AddSelf()
+{
+box = new Varisu($("#self_name").val(),
+              $("#self_age").val(),
+              $("#self_isMarried").prop("checked"),
+              true,
+              Relation.Self,
+              getSelfLastName());
+              boxes.push(box);
+}
+
+function AddDep()
+{
+box = new Varisu($("#dep_name").val(),
+              $("#dep_age").val(),
+              true,
+              $("#dep_isDead").prop("checked"),
+              $("#ddlRelation option:selected").text(),
+              getDepLastName());
+              boxes.push(box);
+}
+
+
+ var boxes =  []; // my array
+
 function FormObject() {
    var obj = $("#childrens").children("div");
 
     var box = {}; // my object
-    var boxes =  []; // my array
+    boxes =  []; // my array
 
-     box = new Varisu($("#gp_name").val(),
+      box = new Varisu($("#gp_name").val(),
       $("#gp_age").val(),
       true,
       $("#gp_isDead").prop("checked"),
       Relation.gp);
       boxes.push(box);
 
+      if(isMale ||  (isMale == false && isMarried == false))
+      {
+          box = new Varisu($("#appa_name").val(),
+          $("#appa_age").val(),
+          true,
+          $("#appa_isDead").prop("checked"),
+          Relation.appa,
+          $("#gp_name").val());
+          boxes.push(box);
 
-       box = new Varisu($("#appa_name").val(),
-      $("#appa_age").val(),
-      true,
-      $("#appa_isDead").prop("checked"),
-      Relation.appa,
-      $("#gp_name").val());
-      boxes.push(box);
+          box = new Varisu($("#amma_name").val(),
+          $("#amma_age").val(),
+          true,
+          $("#amma_isDead").prop("checked"),
+          Relation.amma,
+          $("#appa_name").val());
+          boxes.push(box);
+      }
 
-       box = new Varisu($("#amma_name").val(),
-      $("#amma_age").val(),
-      true,
-      $("#amma_isDead").prop("checked"),
-      Relation.amma,
-      $("#appa_name").val());
-    boxes.push(box);
-
-    box = new Varisu($("#self_name").val(),
-      $("#self_age").val(),
-      $("#self_isMarried").prop("checked"),
-      true,
-      Relation.Self,
-      $("#appa_name").val());
-
-    boxes.push(box);
-
-    box = new Varisu($("#dep_name").val(),
-      $("#dep_age").val(),
-      true,
-      $("#dep_isDead").prop("checked"),
-      Relation.dep,
-      $("#self_name").val());
-      boxes.push(box);
-
-
-    for (let i = 0; i < obj.length; i++) {
-      box = new Varisu($("#son"+(i+1)+"Name").val(),
-      $("#son"+(i+1)+"age").val(),
-      $("#son"+(i+1)+"mrg").prop("checked"),
-      $("#son"+(i+1)+"Status").prop("checked"),
-      $("#rel"+(i+1)+"Name").val(),
-      $("#self_name").val());
-      boxes.push(box);
+    if(isMarried)
+    {
+       if(isMale)
+       {
+            AddSelf();
+            AddDep();
+       }
+       else
+       {
+         AddDep();
+         AddSelf();
+       }
     }
-<!--     alert(JSON.stringify(boxes));-->
+    else
+    {
+        AddSelf();
+    }
+
+
+
+    if(isMarried)
+    {
+        for (let i = 0; i < obj.length; i++) {
+              box = new Varisu($("#son"+(i+1)+"Name").val(),
+              $("#son"+(i+1)+"age").val(),
+              $("#son"+(i+1)+"mrg").prop("checked"),
+              $("#son"+(i+1)+"Status").prop("checked"),
+              $("#rel"+(i+1)+"Name "+ "option:selected").text(),
+              $("#self_name").val());
+              boxes.push(box);
+            }
+    }
 
      $.get('varisu_temp', function(data) {
 
-
                 var dataToReplace = '';
-
-
-
                 for (let i = 1; i < boxes.length; i++) {
                     var row = get_row_template();
                     row = row.replace('[sno]', i)
@@ -178,77 +325,131 @@ function FormObject() {
                 }
 
                 data = data.replace('[data]',dataToReplace);
+                data = data.replace('[adhar]',$("#dep_adhar").val());
+                data = data.replace('[self_name]',$("#self_name").val());
+                data = data.replace('[self_name]',$("#applied_for option:selected").text());
 
                 var winPrint = window.open('', '', width=800,height=600,toolbar=0);
 		        winPrint.document.write(data);
 
-
-});
+        });
 
 
 }
 
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+       alert("hi");
+      form.addEventListener('submit', function (event) {
+      alert("hi");
+        if (!form.checkValidity()) {
+        alert("hi");
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+
     $(function () {
-
-    var template = $('#hidden-template').html();
-
-    $('#childCount').blur(function() {
-        var  childCount = $("#childCount").val();
-        for (let i = 0; i < childCount; i++) {
-      $('#childrens').append(CreateTemplate(i+1));
-    }
-    });
-
-    $('#btnGenerate').click(function() {
-        FormObject();
-    });
-
-
-
-    $('#self_isMarried').change(function () {
-        if ($(this).is(':checked')) {
-            $("#mrgStatus").show();
-        } else {
-            $("#mrgStatus").hide();
+        <!--adding child-->
+        $('#childCount').blur(function() {
+            var  childCount = $("#childCount").val();
+            for (let i = 0; i < childCount; i++) {
+          $('#childrens').append(CreateTemplate(i+1));
         }
-    });
+        });
 
-    $('#self_gender').change(function () {
-        selValue = $('#self_gender').val();
+        <!--generate final output file-->
+        $('#btnGenerate').click(function() {
+            isMale = $("#self_gender").val() == 1;
+            isMarried = $("#self_isMarried").prop("checked");
+            FormObject();
+        });
 
-        if (selValue == 1) {
-            $("#depLabel").text('துணைவி');
-            $("#depNameLabel").text('துணைவி பெயர்');
-            $('#ddlRelation').val(2);
-        } else if (selValue == 2) {
-            $("#depLabel").text('துணைவர்');
-            $("#depNameLabel").text('துணைவர் பெயர்');
-            $('#ddlRelation').val(1);
-        }
-        else
-        {
-        }
-    });
+        <!--married or not married status changed-->
+        $('#self_isMarried').change(function () {
+            DeadGenderScenario();
+            if ($(this).is(':checked')) {
+                $("#mrgStatus").show();
+                $("#lblChild").show();
+                $("#childCount").show();
+                $("#childrens").show();
+            } else {
+                $("#mrgStatus").hide();
+                $("#lblChild").hide();
+                $("#childCount").hide();
+                $("#childrens").hide();
+            }
+        });
 
+        <!--gender changed-->
+        $('#self_gender').change(function () {
+            DeadGenderScenario();
+            selValue = $('#self_gender').val();
 
-
-
+            if (selValue == 1) {
+                $("#depLabel").text('துணைவி');
+                $("#depNameLabel").text('துணைவி பெயர்');
+                $("#dep_name").attr("placeholder", "துணைவி பெயர்");
+                $('#ddlRelation').val(2);
+            } else if (selValue == 2) {
+                $("#depLabel").text('துணைவர்');
+                $("#depNameLabel").text('துணைவர் பெயர்');
+                 $("#dep_name").attr("placeholder", "துணைவர் பெயர்");
+                $('#ddlRelation').val(1);
+            }
+            else
+            {
+            }
+        });
 });
 
 
 </script>
-<form>
-    <div class="container">
-        <div class="row">
+<div class="container">
+    <h2 class="text-center">வாரிசு சான்றிதல் 1</h2>
+    <form action="" method="post" id="frmVarisu">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="dep_adhar">வாரிசு தாரரின் ஆதார் எண்</label>
+
+                <input
+
+                        id="dep_adhar"
+                        name="dep_adhar"
+                        placeholder="ஆதார் எண்"
+                        type="text" required>
+
+
+            </div>
             <div class="col-md-3">
-                 <label for="dep_adhar">ஆதார் எண்</label>
-                <input class="form-control" id="dep_adhar" placeholder="ஆதார் எண்" type="text">
+                <label for="applied_for">உறவு முறை</label>
+                <select class="form-control" id="applied_for">
+                    <option value="0">--தேர்வு செய்--</option>
+                    <option value="1">கணவர்</option>
+                    <option value="2">மனைவி</option>
+                    <option value="3">அப்பா</option>
+                    <option value="4">அம்மா</option>
+                    <option value="5">மகன்</option>
+                    <option value="6">மகள்</option>
+                </select>
             </div>
         </div>
-        <div class="row">
+        <div class="form-row">
             <div class="col-md-3">
                 <label><b>இறந்தவர்</b></label>
-                <input class="form-check-input" id="self_isMarried" type="checkbox" checked="checked">
+                <input checked="checked" class="form-check-input" id="self_isMarried" type="checkbox">
                 <label class="form-check-label" for="self_isMarried">
                     திருமணம்?
                 </label>
@@ -264,15 +465,15 @@ function FormObject() {
             </div>
             <div class="col-md-3">
                 <label for="self_year"> </label>
-                <input class="form-control" id="self_year" placeholder="birthYear" type="text" onblur="CalculateAge(this.id);">
+                <input class="form-control" id="self_year" onblur="CalculateAge(this.id);" placeholder="birthYear"
+                       type="text">
             </div>
             <div class="col-md-3">
                 <label for="self_age"> </label>
                 <input class="form-control" id="self_age" placeholder="age" type="text">
             </div>
         </div>
-
-        <div class="row" id="mrgStatus">
+        <div class="form-row" id="mrgStatus">
             <div class="col-md-3">
                 <label for="ddlRelation" id="depLabel">துணைவர்</label>
                 <input class="form-check-input" id="dep_isDead" type="checkbox">
@@ -291,14 +492,15 @@ function FormObject() {
             </div>
             <div class="col-md-3">
                 <label for="dep_year"> </label>
-                <input class="form-control" id="dep_year" placeholder="depBirthYear" type="text" onblur="CalculateAge(this.id);">
+                <input class="form-control" id="dep_year" onblur="CalculateAge(this.id);" placeholder="depBirthYear"
+                       type="text">
             </div>
             <div class="col-md-3">
                 <label for="dep_age"> </label>
                 <input class="form-control" id="dep_age" placeholder="depAge" type="text">
             </div>
         </div>
-         <div class="row">
+        <div class="form-row">
             <div class="col-md-3">
 
             </div>
@@ -306,16 +508,9 @@ function FormObject() {
                 <label for="gp_name">தாத்தா பெயர்</label>
                 <input class="form-control" id="gp_name" placeholder="தாத்தா பெயர்" type="text">
             </div>
-            <div class="col-md-3">
-                <label for="gp_year"> </label>
-                <input class="form-control" id="gp_year" placeholder="grandpaBirthYear" type="text" onblur="CalculateAge(this.id);">
-            </div>
-            <div class="col-md-3">
-                <label for="gp_age"> </label>
-                <input class="form-control" id="gp_age" placeholder="grandpaAge" type="text">
-            </div>
+
         </div>
-        <div class="row">
+        <div class="form-row" id="appa_div">
             <div class="col-md-3">
 
             </div>
@@ -325,43 +520,55 @@ function FormObject() {
             </div>
             <div class="col-md-3">
                 <label for="appa_year"> </label>
-                <input class="form-control" id="appa_year" placeholder="appaBirthYear" type="text" onblur="CalculateAge(this.id);">
+                <input class="form-control" id="appa_year" onblur="CalculateAge(this.id);" placeholder="appaBirthYear"
+                       type="text">
             </div>
             <div class="col-md-3">
                 <label for="appa_age"> </label>
                 <input class="form-control" id="appa_age" placeholder="appaAge" type="text">
             </div>
         </div>
-        <div class="row">
+        <div class="form-row" id="amma_div">
             <div class="col-md-3">
 
             </div>
             <div class="col-md-3">
                 <label for="amma_name">அம்மா பெயர்</label>
-                <input class="form-control" id="amma_name" placeholder="appa பெயர்" type="text">
+                <input class="form-control" id="amma_name" placeholder="அம்மா பெயர்" type="text">
             </div>
             <div class="col-md-3">
                 <label for="amma_year"> </label>
-                <input class="form-control" id="amma_year" placeholder="ammaBirthYear" type="text" onblur="CalculateAge(this.id);">
+                <input class="form-control" id="amma_year" onblur="CalculateAge(this.id);" placeholder="ammaBirthYear"
+                       type="text">
             </div>
             <div class="col-md-3">
                 <label for="amma_age"> </label>
                 <input class="form-control" id="amma_age" placeholder="ammaAge" type="text">
             </div>
         </div>
-        <div class="row">
+        <div class="form-row">
 
-            <div class="col-md-2"><label for="childCount">பிள்ளைகள்?</label> <input class="form-control" id="childCount"
-                                                                                    placeholder="childCount"
-                                                                                    type="text"></div>
+            <div class="col-md-2"><label for="childCount" id="lblChild">பிள்ளைகள்?</label>
+                <input class="form-control" id="childCount" placeholder="childCount" type="text"></div>
         </div>
         <div class="container" id="childrens">
 
         </div>
-
-        <button class="btn btn-primary" type="button" id="btnGenerate">CREATE</button>
+        <div class="form-group">
+        <div class="col-md-9 col-md-offset-3">
+            <div id="messages"></div>
+        </div>
     </div>
-</form>
+        <div class="form-group col-md-1">
+            <button class="btn btn-primary" id="btnGenerate" name="btnGenerate" type="submit">CREATE</button>
+        </div>
+
+    </form>
+</div>
+<script>
+bootstrapValidate('#dep_adhar', 'email:Enter a valid email address');
+
+</script>
 
 
 {% endblock body %}
