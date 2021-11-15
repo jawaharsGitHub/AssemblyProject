@@ -16,64 +16,133 @@
 <!--6. non married-->
 
 
-
 <script>
 
 var isMale;
 var isMarried;
 
-
 $(document).ready(function() {
-    $('#frmVarisu').bootstrapValidator({
-        container: '#messages',
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            dep_adhar: {
-                validators: {
-                    notEmpty: {
-                        message: 'Adhar number is required and cannot be empty'
-                    }
-                }
+    $('#frmVarisu')
+        .bootstrapValidator({
+            excluded: ':disabled',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
             },
-            email: {
-                validators: {
-                    notEmpty: {
-                        message: 'The email address is required and cannot be empty'
-                    },
-                    emailAddress: {
-                        message: 'The email address is not valid'
+
+            fields: {
+                 dep_adhar: {
+                    validators: {
+                        notEmpty: {
+                            message: 'ஆதார் எண்?'
+                        }
                     }
-                }
-            },
-            title: {
-                validators: {
-                    notEmpty: {
-                        message: 'The title is required and cannot be empty'
-                    },
-                    stringLength: {
-                        max: 100,
-                        message: 'The title must be less than 100 characters long'
+                },
+                 self_name: {
+                    validators: {
+                        notEmpty: {
+                            message: 'இறந்தவர் பெயர்?'
+                        }
                     }
-                }
-            },
-            content: {
-                validators: {
-                    notEmpty: {
-                        message: 'The content is required and cannot be empty'
-                    },
-                    stringLength: {
-                        max: 500,
-                        message: 'The content must be less than 500 characters long'
+                },
+                 self_age: {
+                    validators: {
+                        notEmpty: {
+                            message: 'இறந்தவர் வயது?'
+                        }
+                    }
+                },
+                 dep_name: {
+                    validators: {
+                        notEmpty: {
+                            message: 'துணை பெயர்?'
+                        }
+                    }
+                },
+                 dep_age: {
+                    validators: {
+                        notEmpty: {
+                            message: 'துணை வயது?'
+                        }
+                    }
+                },
+                 gp_name: {
+                    validators: {
+                        notEmpty: {
+                            message: 'தாத்தா பெயர்?'
+                        }
+                    }
+                },
+                 appa_name: {
+                    validators: {
+                        notEmpty: {
+                            message: 'துணை பெயர்?'
+                        }
+                    }
+                },
+                 appa_age: {
+                    validators: {
+                        notEmpty: {
+                            message: 'துணை வயது?'
+                        }
+                    }
+                },
+                 amma_name: {
+                    validators: {
+                        notEmpty: {
+                            message: 'துணை பெயர்?'
+                        }
+                    }
+                },
+                 amma_age: {
+                    validators: {
+                        notEmpty: {
+                            message: 'துணை வயது?'
+                        }
+                    }
+                },
+                applied_for: {
+                    validators: {
+                        callback: {
+                            message: 'யாருக்கு?',
+                            callback: function(value, validator) {
+                                // Get the selected options
+                                var options = validator.getFieldElements('applied_for').val();
+                                return (options != null && options != 0);
+                            }
+                        }
+                    }
+                },
+                self_gender: {
+                    validators: {
+                        callback: {
+                            message: 'இறந்தவர் ஆணா பெண்ணா?',
+                            callback: function(value, validator) {
+                                // Get the selected options
+                                var options = validator.getFieldElements('self_gender').val();
+                                return (options != null && options != 0);
+                            }
+                        }
+                    }
+                },
+                ddlRelation: {
+                    validators: {
+                        callback: {
+                            message: "துணை?",
+                            callback: function(value, validator) {
+                                // Get the selected options
+                                var options = validator.getFieldElements('ddlRelation').val();
+                                return (options != null && options != 0);
+                            }
+                        }
                     }
                 }
             }
-        }
-    });
+        });
 });
+
+
 
 var Relation = {
    NONE: -1,
@@ -122,7 +191,7 @@ function CreateTemplate(index)
 {
 
 return  `
-        <div class="row">
+        <div class="row" id="p${index}">
                 <div class="col-md-2">
                    <select class="form-control" id="rel${index}Name">
                     <option value="0">--தேர்வு செய்--</option>
@@ -131,7 +200,7 @@ return  `
                  </select>
                 </div>
                 <div class="col-md-3">
-                    <input class="form-control" id="son${index}Name" placeholder="son${index}Name" type="text">
+                    <input class="form-control" id="son${index}Name" placeholder="son${index}Name" type="text" required>
                 </div>
                 <div class="col-md-1">
                     <input class="form-control" id="son${index}year" placeholder="son${index}year" type="text" onblur="CalculateAge(this.id);">
@@ -153,10 +222,19 @@ return  `
                     </label>
 
                 </div>
+                 <div class="col-md-1">
+
+                   <button class="btn btn-danger" id="btnGenerate" name="btnGenerate" type="button" onclick="Delete('p${index}');">Delete-${index}</button>
+
+                </div>
             </div>
     `
 }
 
+function Delete(index)
+{
+    $('#'+ index).empty();
+}
 function CalculateAge(ctrlId)
     {
     var v = $("#"+ctrlId).val().trim();
@@ -246,6 +324,8 @@ box = new Varisu($("#dep_name").val(),
  var boxes =  []; // my array
 
 function FormObject() {
+
+alert('2');
    var obj = $("#childrens").children("div");
 
     var box = {}; // my object
@@ -296,6 +376,31 @@ function FormObject() {
     }
 
 
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+IsValidForm () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  alert(3);
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+
+      alert(1);
+        if (!form.checkValidity()) {
+
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+}
 
     if(isMarried)
     {
@@ -337,40 +442,23 @@ function FormObject() {
 
 }
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-       alert("hi");
-      form.addEventListener('submit', function (event) {
-      alert("hi");
-        if (!form.checkValidity()) {
-        alert("hi");
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
 
     $(function () {
+    $('#childrens').empty();
         <!--adding child-->
         $('#childCount').blur(function() {
+
             var  childCount = $("#childCount").val();
             for (let i = 0; i < childCount; i++) {
           $('#childrens').append(CreateTemplate(i+1));
+
         }
         });
 
         <!--generate final output file-->
         $('#btnGenerate').click(function() {
+
             isMale = $("#self_gender").val() == 1;
             isMarried = $("#self_isMarried").prop("checked");
             FormObject();
@@ -415,28 +503,31 @@ function FormObject() {
 });
 
 
+
+
 </script>
 <div class="container">
     <h2 class="text-center">வாரிசு சான்றிதல் 1</h2>
-    <form action="" method="post" id="frmVarisu">
+    <form action="" class="row g-3 needs-validation" id="frmVarisu" method="post" novalidate>
         {% csrf_token %}
-        <div class="form-row">
-            <div class="form-group col-md-3">
+
+        <div class="row">
+            <div class="col-md-3">
                 <label for="dep_adhar">வாரிசு தாரரின் ஆதார் எண்</label>
 
                 <input
-
+                        class="form-control"
                         id="dep_adhar"
                         name="dep_adhar"
-                        placeholder="ஆதார் எண்"
-                        type="text" required>
+                        placeholder="வாரிசு தாரரின் ஆதார் எண்"
+                        required type="text">
 
 
             </div>
             <div class="col-md-3">
                 <label for="applied_for">உறவு முறை</label>
-                <select class="form-control" id="applied_for">
-                    <option value="0">--தேர்வு செய்--</option>
+                <select class="form-control" id="applied_for" name="applied_for">
+                    <option value="">--தேர்வு செய்--</option>
                     <option value="1">கணவர்</option>
                     <option value="2">மனைவி</option>
                     <option value="3">அப்பா</option>
@@ -446,107 +537,108 @@ function FormObject() {
                 </select>
             </div>
         </div>
-        <div class="form-row">
+        <div class="row">
             <div class="col-md-3">
                 <label><b>இறந்தவர்</b></label>
                 <input checked="checked" class="form-check-input" id="self_isMarried" type="checkbox">
                 <label class="form-check-label" for="self_isMarried">
                     திருமணம்?
                 </label>
-                <select class="form-control" id="self_gender">
-                    <option value="0">--தேர்வு செய்--</option>
+                <select class="form-control" id="self_gender" name="self_gender">
+                    <option value="">--தேர்வு செய்--</option>
                     <option value="1">ஆண்</option>
                     <option value="2">பெண்</option>
                 </select>
             </div>
             <div class="col-md-3">
                 <label for="self_name">இறந்தவர் பெயர்</label>
-                <input class="form-control" id="self_name" placeholder="பெயர்" type="text">
+                <input class="form-control" id="self_name" name="self_name" placeholder="பெயர்" type="text">
             </div>
             <div class="col-md-3">
                 <label for="self_year"> </label>
-                <input class="form-control" id="self_year" onblur="CalculateAge(this.id);" placeholder="birthYear"
+                <input class="form-control" id="self_year" name="self_year" onblur="CalculateAge(this.id);" placeholder="birthYear"
                        type="text">
             </div>
             <div class="col-md-3">
                 <label for="self_age"> </label>
-                <input class="form-control" id="self_age" placeholder="age" type="text">
+                <input class="form-control" id="self_age" name="self_age" placeholder="age" required type="text">
             </div>
         </div>
-        <div class="form-row" id="mrgStatus">
+
+        <div class="row" id="mrgStatus">
             <div class="col-md-3">
                 <label for="ddlRelation" id="depLabel">துணைவர்</label>
                 <input class="form-check-input" id="dep_isDead" type="checkbox">
                 <label class="form-check-label" for="dep_isDead">
                     இறந்தவர்?
                 </label>
-                <select class="form-control" id="ddlRelation">
-                    <option value="0">--தேர்வு செய்--</option>
+                <select class="form-control" id="ddlRelation" name="ddlRelation">
+                    <option value="">--தேர்வு செய்--</option>
                     <option value="1">கணவன்</option>
                     <option value="2">மனைவி</option>
                 </select>
             </div>
             <div class="col-md-3">
                 <label for="dep_name" id="depNameLabel">துணைவர் பெயர்</label>
-                <input class="form-control" id="dep_name" placeholder="துணைவர் பெயர்" type="text">
+                <input class="form-control" id="dep_name" name="dep_name" placeholder="துணைவர் பெயர்" type="text">
             </div>
             <div class="col-md-3">
                 <label for="dep_year"> </label>
-                <input class="form-control" id="dep_year" onblur="CalculateAge(this.id);" placeholder="depBirthYear"
+                <input class="form-control" id="dep_year" name="dep_year" onblur="CalculateAge(this.id);" placeholder="depBirthYear"
                        type="text">
             </div>
             <div class="col-md-3">
                 <label for="dep_age"> </label>
-                <input class="form-control" id="dep_age" placeholder="depAge" type="text">
+                <input class="form-control" id="dep_age" name="dep_age" placeholder="depAge" type="text">
             </div>
         </div>
-        <div class="form-row">
+        <div class="row">
             <div class="col-md-3">
 
             </div>
             <div class="col-md-3">
                 <label for="gp_name">தாத்தா பெயர்</label>
-                <input class="form-control" id="gp_name" placeholder="தாத்தா பெயர்" type="text">
+                <input class="form-control" id="gp_name" name="gp_name" placeholder="தாத்தா பெயர்" type="text">
             </div>
 
         </div>
-        <div class="form-row" id="appa_div">
+        <div class="row" id="appa_div">
             <div class="col-md-3">
 
             </div>
             <div class="col-md-3">
                 <label for="appa_name">அப்பா பெயர்</label>
-                <input class="form-control" id="appa_name" placeholder="அப்பா பெயர்" type="text">
+                <input class="form-control" id="appa_name" name="appa_name" placeholder="அப்பா பெயர்" type="text">
             </div>
             <div class="col-md-3">
                 <label for="appa_year"> </label>
-                <input class="form-control" id="appa_year" onblur="CalculateAge(this.id);" placeholder="appaBirthYear"
+                <input class="form-control" id="appa_year" name="appa_year" onblur="CalculateAge(this.id);" placeholder="appaBirthYear"
                        type="text">
             </div>
             <div class="col-md-3">
                 <label for="appa_age"> </label>
-                <input class="form-control" id="appa_age" placeholder="appaAge" type="text">
+                <input class="form-control" id="appa_age" name="appa_age" placeholder="appaAge" type="text">
             </div>
         </div>
-        <div class="form-row" id="amma_div">
+        <div class="row" id="amma_div">
             <div class="col-md-3">
 
             </div>
             <div class="col-md-3">
                 <label for="amma_name">அம்மா பெயர்</label>
-                <input class="form-control" id="amma_name" placeholder="அம்மா பெயர்" type="text">
+                <input class="form-control" id="amma_name" name="amma_name" placeholder="அம்மா பெயர்" type="text">
             </div>
             <div class="col-md-3">
                 <label for="amma_year"> </label>
-                <input class="form-control" id="amma_year" onblur="CalculateAge(this.id);" placeholder="ammaBirthYear"
+                <input class="form-control" id="amma_year" name="amma_year" onblur="CalculateAge(this.id);" placeholder="ammaBirthYear"
                        type="text">
             </div>
             <div class="col-md-3">
                 <label for="amma_age"> </label>
-                <input class="form-control" id="amma_age" placeholder="ammaAge" type="text">
+                <input class="form-control" id="amma_age" name="amma_age" placeholder="ammaAge" type="text">
             </div>
         </div>
-        <div class="form-row">
+        <div class="row">
 
             <div class="col-md-2"><label for="childCount" id="lblChild">பிள்ளைகள்?</label>
                 <input class="form-control" id="childCount" placeholder="childCount" type="text"></div>
@@ -555,20 +647,17 @@ function FormObject() {
 
         </div>
         <div class="form-group">
-        <div class="col-md-9 col-md-offset-3">
-            <div id="messages"></div>
+
         </div>
-    </div>
         <div class="form-group col-md-1">
             <button class="btn btn-primary" id="btnGenerate" name="btnGenerate" type="submit">CREATE</button>
+        </div>
+        <div class="col-md-9 col-md-offset-3">
+            <div id="messages"></div>
         </div>
 
     </form>
 </div>
-<script>
-bootstrapValidate('#dep_adhar', 'email:Enter a valid email address');
-
-</script>
 
 
 {% endblock body %}
