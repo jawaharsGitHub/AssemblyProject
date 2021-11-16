@@ -175,16 +175,16 @@ class Varisu {
 function get_row_template(object)
 {
 
-return  `
-         <tr>
-      <td scope="col">[sno]</td>
-      <td scope="col">[name]</td>
-      <td scope="col">[husband]</td>
-      <td scope="col">[age]</th>
-        <td scope="col">[relation]</th>
-      <th scope="col">[marriage]</th>
-    </tr>
-    `
+    return  `
+             <tr>
+          <td scope="col">[sno]</td>
+          <td scope="col">[name]</td>
+          <td scope="col">[husband]</td>
+          <td scope="col">[age]</th>
+            <td scope="col">[relation]</th>
+          <th scope="col">[marriage]</th>
+        </tr>
+        `
 }
 
 function CreateTemplate(index)
@@ -235,8 +235,9 @@ function Delete(index)
 {
     $('#'+ index).empty();
 }
+
 function CalculateAge(ctrlId)
-    {
+  {
     var v = $("#"+ctrlId).val().trim();
 
         if (v != '') {
@@ -246,7 +247,8 @@ function CalculateAge(ctrlId)
         let year = d.getFullYear();
             $("#"+ageId).val(year - v);
         }
-    }
+
+  }
 
 function DeadGenderScenario()
 {
@@ -290,7 +292,7 @@ function getDepLastName()
         var d;
 
         if(isMale)
-            d =  $("#appa_name").val();
+           d =  $("#appa_name").val();
         else
            d =  $("#gp_name").val();
 
@@ -321,11 +323,11 @@ box = new Varisu($("#dep_name").val(),
 }
 
 
- var boxes =  []; // my array
+var boxes =  []; // my array
 
 function FormObject() {
 
-alert('2');
+alert('22345');
    var obj = $("#childrens").children("div");
 
     var box = {}; // my object
@@ -357,50 +359,23 @@ alert('2');
           boxes.push(box);
       }
 
-    if(isMarried)
-    {
-       if(isMale)
-       {
-            AddSelf();
-            AddDep();
-       }
-       else
-       {
-         AddDep();
-         AddSelf();
-       }
-    }
-    else
-    {
-        AddSelf();
-    }
-
-
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-IsValidForm () {
-  'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
-
-  alert(3);
-
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-
-      alert(1);
-        if (!form.checkValidity()) {
-
-          event.preventDefault()
-          event.stopPropagation()
+        if(isMarried)
+        {
+           if(isMale)
+           {
+                AddSelf();
+                AddDep();
+           }
+           else
+           {
+             AddDep();
+             AddSelf();
+           }
         }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-}
+        else
+        {
+            AddSelf();
+        }
 
     if(isMarried)
     {
@@ -414,6 +389,13 @@ IsValidForm () {
               boxes.push(box);
             }
     }
+ }
+
+
+
+     // Example starter JavaScript for disabling form submissions if there are invalid fields
+
+
 
      $.get('varisu_temp', function(data) {
 
@@ -440,7 +422,6 @@ IsValidForm () {
         });
 
 
-}
 
 
 
@@ -459,9 +440,13 @@ IsValidForm () {
         <!--generate final output file-->
         $('#btnGenerate').click(function() {
 
-            isMale = $("#self_gender").val() == 1;
-            isMarried = $("#self_isMarried").prop("checked");
-            FormObject();
+
+                alert('ok');
+                isMale = $("#self_gender").val() == 1;
+                isMarried = $("#self_isMarried").prop("checked");
+                FormObject();
+
+
         });
 
         <!--married or not married status changed-->
@@ -501,6 +486,7 @@ IsValidForm () {
             }
         });
 });
+
 
 
 
@@ -556,7 +542,8 @@ IsValidForm () {
             </div>
             <div class="col-md-3">
                 <label for="self_year"> </label>
-                <input class="form-control" id="self_year" name="self_year" onblur="CalculateAge(this.id);" placeholder="birthYear"
+                <input class="form-control" id="self_year" name="self_year" onblur="CalculateAge(this.id);"
+                       placeholder="birthYear"
                        type="text">
             </div>
             <div class="col-md-3">
@@ -584,7 +571,8 @@ IsValidForm () {
             </div>
             <div class="col-md-3">
                 <label for="dep_year"> </label>
-                <input class="form-control" id="dep_year" name="dep_year" onblur="CalculateAge(this.id);" placeholder="depBirthYear"
+                <input class="form-control" id="dep_year" name="dep_year" onblur="CalculateAge(this.id);"
+                       placeholder="depBirthYear"
                        type="text">
             </div>
             <div class="col-md-3">
@@ -612,7 +600,8 @@ IsValidForm () {
             </div>
             <div class="col-md-3">
                 <label for="appa_year"> </label>
-                <input class="form-control" id="appa_year" name="appa_year" onblur="CalculateAge(this.id);" placeholder="appaBirthYear"
+                <input class="form-control" id="appa_year" name="appa_year" onblur="CalculateAge(this.id);"
+                       placeholder="appaBirthYear"
                        type="text">
             </div>
             <div class="col-md-3">
@@ -630,7 +619,8 @@ IsValidForm () {
             </div>
             <div class="col-md-3">
                 <label for="amma_year"> </label>
-                <input class="form-control" id="amma_year" name="amma_year" onblur="CalculateAge(this.id);" placeholder="ammaBirthYear"
+                <input class="form-control" id="amma_year" name="amma_year" onblur="CalculateAge(this.id);"
+                       placeholder="ammaBirthYear"
                        type="text">
             </div>
             <div class="col-md-3">
@@ -658,6 +648,31 @@ IsValidForm () {
 
     </form>
 </div>
+
+
+<script>
+
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
 
 
 {% endblock body %}
