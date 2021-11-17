@@ -24,7 +24,6 @@ def crop_view(request):
 
 
 def varisu_sandrithal(request):
-    print('hello')
     return render(request, 'eservice/varisu_sandrithal.html')
 
 def varisu_sandrithal_temp(request):
