@@ -446,7 +446,6 @@ function FormObject()
             var existingCount = GetChildCount();
 
             var  childCount = Number($("#childCount").val()) + Number(existingCount);
-            alert(childCount);
             for (let i = existingCount; i < childCount; i++) {
           $('#childrens').append(CreateTemplate(i+1));
 

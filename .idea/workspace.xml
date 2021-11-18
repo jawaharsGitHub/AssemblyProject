@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30ed6d91-45fb-4c27-88c8-7c2b39f30bb7" name="Changes" comment="validation + some learning stuffs">
-      <change afterPath="$PROJECT_DIR$/AssemblyApp/LearningApp/tokens.py" afterDir="false" />
+    <list default="true" id="30ed6d91-45fb-4c27-88c8-7c2b39f30bb7" name="Changes" comment="bootstrap validation works">
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/adangal/adangal_home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/adangal/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/eServiceApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/eServiceApp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/adangalApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/adangalApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/adangalApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/adangalApp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal_temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal_temp.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +43,8 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -48,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AssemblyApp/static" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/AssemblyApp/templates/adangal" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyDebuggerOptionsProvider">
@@ -56,11 +61,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\PyProject\AssemblyApp\templates\adangal" />
       <recent name="F:\PyProject\AssemblyApp\static" />
       <recent name="F:\PyProject\AssemblyApp\schoolApp" />
       <recent name="F:\PyProject\AssemblyApp\partyApp" />
       <recent name="F:\PyProject\AssemblyApp\govtApp" />
-      <recent name="F:\PyProject\AssemblyApp\commonApp" />
     </key>
   </component>
   <component name="RunManager" selected="Python.AssemblyApp">
@@ -240,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637084539757</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="bootstrap validation works">
+      <created>1637165139466</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1637165139466</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,7 +278,8 @@
     <MESSAGE value="added few style css" />
     <MESSAGE value="validation using bootstrap for varisu app" />
     <MESSAGE value="validation + some learning stuffs" />
-    <option name="LAST_COMMIT_MESSAGE" value="validation + some learning stuffs" />
+    <MESSAGE value="bootstrap validation works" />
+    <option name="LAST_COMMIT_MESSAGE" value="bootstrap validation works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

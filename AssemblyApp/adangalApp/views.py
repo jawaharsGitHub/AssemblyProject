@@ -4,5 +4,5 @@ from django.shortcuts import render, HttpResponse
 
 
 def adangal(request):
-    return HttpResponse("adangal default page")
+    return render(request, 'adangal/adangal_home.html')
 

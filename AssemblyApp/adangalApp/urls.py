@@ -18,5 +18,5 @@ from . import views
 
 
 urlpatterns = [
-    path('/', views.adangal)
+    path('', views.adangal)
 ]
