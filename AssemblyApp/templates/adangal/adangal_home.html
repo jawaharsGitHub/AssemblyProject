@@ -2,164 +2,41 @@
 {% block body %}
 
 
-
 <div class="container">
     <h2 class="text-center">அடங்கல்</h2>
     <form action="" class="row g-3 needs-validation" id="frmVarisu" method="post" novalidate>
         {% csrf_token %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">நிலை-1</div>
+                        <div class="panel-body">
+                            <label class="form-check-label" for="ddlMaavattam">
+                                மாவட்டம்
+                            </label>
+                            <select class="form-control" id="ddlMaavattam" name="ddlMaavattam">
 
-        <div class="row">
-            <div class="col-md-3">
-                <label for="dep_adhar">வாரிசு தாரரின் ஆதார் எண்</label>
+                            </select>
+                             <label class="form-check-label" for="ddlVattam">
+                                வட்டம்
+                            </label>
+                            <select class="form-control" id="ddlVattam" name="ddlVattam">
 
-                <input
-                        class="form-control"
-                        id="dep_adhar"
-                        name="dep_adhar"
-                        placeholder="வாரிசு தாரரின் ஆதார் எண்"
-                        required
-                        type="number"
-                        pattern="[0-9]"
-                        onkeypress="return AllowOnlyNumbers(this, event);"
-                        />
+                            </select>
+                             <label class="form-check-label" for="ddlVillage">
+                                வருவாய் கிராமம்
+                            </label>
+                            <select class="form-control" id="ddlVillage" name="ddlVillage">
 
+                            </select>
 
-            </div>
-            <div class="col-md-3">
-                <label for="applied_for">உறவு முறை</label>
-                <select class="form-control" id="applied_for" name="applied_for">
-                    <option value="">--தேர்வு செய்--</option>
-                    <option value="1">கணவர்</option>
-                    <option value="2">மனைவி</option>
-                    <option value="3">அப்பா</option>
-                    <option value="4">அம்மா</option>
-                    <option value="5">மகன்</option>
-                    <option value="6">மகள்</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <label><b>இறந்தவர்</b></label>
-                <input checked="checked" class="form-check-input" id="self_isMarried" type="checkbox">
-                <label class="form-check-label" for="self_isMarried">
-                    திருமணம்?
-                </label>
-                <select class="form-control" id="self_gender" name="self_gender">
-                    <option value="">--தேர்வு செய்--</option>
-                    <option value="1">ஆண்</option>
-                    <option value="2">பெண்</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label for="self_name">இறந்தவர் பெயர்</label>
-                <input class="form-control" id="self_name" name="self_name" placeholder="இறந்தவர் பெயர்" type="text">
-            </div>
-            <div class="col-md-1">
-                <label for="self_year"> </label>
-                <input class="form-control" id="self_year" name="self_year" onblur="CalculateAge(this.id);"
-                       placeholder="yob"
-                       type="text">
-            </div>
-            <div class="col-md-1">
-                <label for="self_age"> </label>
-                <input class="form-control" id="self_age" name="self_age" placeholder="age" required type="text">
-            </div>
-        </div>
+                             <button class="btn btn-primary" id="btnGenerate" name="btnGenerate" type="submit">1. முதல் தகவலை எடு</button>
 
-        <div class="row" id="mrgStatus">
-            <div class="col-md-3">
-                <label for="ddlRelation" id="depLabel">துணைவர்</label>
-                <input class="form-check-input" id="dep_isDead" type="checkbox">
-                <label class="form-check-label" for="dep_isDead">
-                    இறந்தவர்?
-                </label>
-                <select class="form-control" id="ddlRelation" name="ddlRelation">
-                    <option value="">--தேர்வு செய்--</option>
-                    <option value="1">கணவன்</option>
-                    <option value="2">மனைவி</option>
-                </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <label for="dep_name" id="depNameLabel">துணைவர் பெயர்</label>
-                <input class="form-control" id="dep_name" name="dep_name" placeholder="துணைவர் பெயர்" type="text">
-            </div>
-            <div class="col-md-1">
-                <label for="dep_year"> </label>
-                <input class="form-control" id="dep_year" name="dep_year" onblur="CalculateAge(this.id);"
-                       placeholder="yob"
-                       type="text">
-            </div>
-            <div class="col-md-1">
-                <label for="dep_age"> </label>
-                <input class="form-control" id="dep_age" name="dep_age" placeholder="age" type="text">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-
-            </div>
-            <div class="col-md-3">
-                <label for="gp_name">தாத்தா பெயர்</label>
-                <input class="form-control" id="gp_name" name="gp_name" placeholder="தாத்தா பெயர்" type="text">
-            </div>
-
-        </div>
-        <div class="row" id="appa_div">
-            <div class="col-md-3">
-
-            </div>
-            <div class="col-md-3">
-                <label for="appa_name">அப்பா பெயர்</label>
-                <input class="form-control" id="appa_name" name="appa_name" placeholder="அப்பா பெயர்" type="text">
-            </div>
-            <div class="col-md-1">
-                <label for="appa_year"> </label>
-                <input class="form-control" id="appa_year" name="appa_year" onblur="CalculateAge(this.id);"
-                       placeholder="yob"
-                       type="text">
-            </div>
-            <div class="col-md-1">
-                <label for="appa_age"> </label>
-                <input class="form-control" id="appa_age" name="appa_age" placeholder="age" type="text">
-            </div>
-        </div>
-        <div class="row" id="amma_div">
-            <div class="col-md-3">
-
-            </div>
-            <div class="col-md-3">
-                <label for="amma_name">அம்மா பெயர்</label>
-                <input class="form-control" id="amma_name" name="amma_name" placeholder="அம்மா பெயர்" type="text">
-            </div>
-            <div class="col-md-1">
-                <label for="amma_year"> </label>
-                <input class="form-control" id="amma_year" name="amma_year" onblur="CalculateAge(this.id);"
-                       placeholder="yob"
-                       type="text">
-            </div>
-            <div class="col-md-1">
-                <label for="amma_age"> </label>
-                <input class="form-control" id="amma_age" name="amma_age" placeholder="age" type="text">
-            </div>
-        </div>
-        <div class="row">
-
-            <div class="col-md-2"><label for="childCount" id="lblChild">பிள்ளைகள்?</label>
-                <input class="form-control" id="childCount" placeholder="childCount" type="text"></div>
-        </div>
-        <div class="container" id="childrens">
-
-        </div>
-        <div class="form-group">
-
-        </div>
-        <div class="form-group col-md-1">
-            <button class="btn btn-primary" id="btnGenerate" name="btnGenerate" type="submit">CREATE</button>
-        </div>
-        <div class="col-md-9 col-md-offset-3">
-            <div id="messages"></div>
-        </div>
 
     </form>
 </div>

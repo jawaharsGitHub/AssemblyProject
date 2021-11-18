@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30ed6d91-45fb-4c27-88c8-7c2b39f30bb7" name="Changes" comment="connected to production db">
+    <list default="true" id="30ed6d91-45fb-4c27-88c8-7c2b39f30bb7" name="Changes" comment="little change in varisu cert">
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/Common/Tamilnadu/RevDistrict.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/Common/Tamilnadu/TNapi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/adangalApp/RevDistrict.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/static/RevDistrict.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/static/tnDataSource.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal_temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal_temp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/adangalApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/adangalApp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/adangal/adangal_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/adangal/adangal_home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AssemblyApp/templates/adangal" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/AssemblyApp/Common/Tamilnadu" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyDebuggerOptionsProvider">
@@ -56,11 +61,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\PyProject\AssemblyApp\templates\adangal" />
+      <recent name="F:\PyProject\AssemblyApp\Common\Tamilnadu" />
+      <recent name="F:\PyProject\AssemblyApp\adangalApp" />
       <recent name="F:\PyProject\AssemblyApp\static" />
+      <recent name="F:\PyProject\AssemblyApp\templates\adangal" />
       <recent name="F:\PyProject\AssemblyApp\schoolApp" />
-      <recent name="F:\PyProject\AssemblyApp\partyApp" />
-      <recent name="F:\PyProject\AssemblyApp\govtApp" />
     </key>
   </component>
   <component name="RunManager" selected="Python.AssemblyApp">
@@ -106,6 +111,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="TNapi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\WelCome\AppData\Local\Programs\Python\Python310\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/AssemblyApp/Common/Tamilnadu" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AssemblyApp/Common/Tamilnadu/TNapi.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="modname" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -119,6 +145,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AssemblyApp/LearningApp/modname.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tnDataSource" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\WelCome\AppData\Local\Programs\Python\Python310\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/AssemblyApp/static" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AssemblyApp/static/tnDataSource.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,9 +200,13 @@
       <item itemvalue="Python.PhoneTracker" />
       <item itemvalue="Python.modname" />
       <item itemvalue="Python.tokens" />
+      <item itemvalue="Python.TNapi" />
+      <item itemvalue="Python.tnDataSource" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.tnDataSource" />
+        <item itemvalue="Python.TNapi" />
         <item itemvalue="Python.tokens" />
         <item itemvalue="Python.modname" />
       </list>
@@ -254,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637215023557</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="little change in varisu cert">
+      <created>1637246267169</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1637246267169</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -282,10 +340,18 @@
     <MESSAGE value="validation + some learning stuffs" />
     <MESSAGE value="bootstrap validation works" />
     <MESSAGE value="connected to production db" />
-    <option name="LAST_COMMIT_MESSAGE" value="connected to production db" />
+    <MESSAGE value="little change in varisu cert" />
+    <option name="LAST_COMMIT_MESSAGE" value="little change in varisu cert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/AssemblyApp/adangalApp/views.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -299,6 +365,7 @@
         <watch expression="request.POST.'parappu' (2448339225456)" language="Python" />
         <watch expression="request.POST.'parappu' (2448339225456)" language="Python" />
         <watch expression="f&quot;{int(hec)}.{format(round(ares,2), '.2f')}&quot;" />
+        <watch expression="data.'root' (2868714897904).'flag' (2868714905776)" />
       </configuration>
     </watches-manager>
   </component>
