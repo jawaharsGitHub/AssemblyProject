@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30ed6d91-45fb-4c27-88c8-7c2b39f30bb7" name="Changes" comment="bootstrap validation works">
-      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/adangal/adangal_home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssemblyApp/templates/adangal/base.html" afterDir="false" />
+    <list default="true" id="30ed6d91-45fb-4c27-88c8-7c2b39f30bb7" name="Changes" comment="connected to production db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/adangalApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/adangalApp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/adangalApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/adangalApp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal_temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/eservice/varisu_sandrithal_temp.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637165139466</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="connected to production db">
+      <created>1637215023557</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1637215023557</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -279,7 +281,8 @@
     <MESSAGE value="validation using bootstrap for varisu app" />
     <MESSAGE value="validation + some learning stuffs" />
     <MESSAGE value="bootstrap validation works" />
-    <option name="LAST_COMMIT_MESSAGE" value="bootstrap validation works" />
+    <MESSAGE value="connected to production db" />
+    <option name="LAST_COMMIT_MESSAGE" value="connected to production db" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

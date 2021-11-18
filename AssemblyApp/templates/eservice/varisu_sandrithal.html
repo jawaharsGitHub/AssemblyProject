@@ -182,12 +182,12 @@ function get_row_template(object)
 
     return  `
              <tr>
-          <td scope="col">[sno]</td>
-          <td scope="col">[name]</td>
-          <td scope="col">[husband]</td>
-          <td scope="col">[age]</th>
-            <td scope="col">[relation]</th>
-          <th scope="col">[marriage]</th>
+          <td scope="col" class="tdProp">[sno]</td>
+          <td scope="col" class="tdProp">[name]</td>
+          <td scope="col" class="tdProp">[husband]</td>
+          <td scope="col" class="tdProp">[age]</td>
+            <td scope="col" class="tdProp">[relation]</td>
+          <td scope="col" class="tdProp">[marriage]</td>
         </tr>
         `
 }
@@ -537,7 +537,7 @@ function FormObject()
 
             </div>
             <div class="col-md-3">
-                <label for="applied_for">உறவு முறை</label>
+                <label for="applied_for">யாரு வாங்குறீங்க? (Applicant?)</label>
                 <select class="form-control" id="applied_for" name="applied_for">
                     <option value="">--தேர்வு செய்--</option>
                     <option value="1">கணவர்</option>
