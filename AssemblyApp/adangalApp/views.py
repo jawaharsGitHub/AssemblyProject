@@ -6,10 +6,19 @@ from Common.Tamilnadu import TNapi
 
 
 def adangal(request):
-    #data = TNapi.get_subdiv(17, '05', 652, 243)
-    #print(data)
-    districts = TNapi.get_districts()
-    print(districts)
-    return render(request, 'adangal/adangal_home.html')
+    # if request.method == 'GET':
+        districts = TNapi.get_districts()
+        taluks = TNapi.get_taluk(17)
+        villages = TNapi.get_villages(17, '05')
+        print('districts')
+        context = {
+            'districts': districts,
+            'taluks': taluks,
+            'villages': villages
+
+        }
+        return render(request, 'adangal/adangal_home.html', context)
+    # else:
+    #     return render(request, 'adangal/adangal_home.html')
 
 

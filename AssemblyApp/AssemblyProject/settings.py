@@ -73,35 +73,26 @@ WSGI_APPLICATION = 'AssemblyProject.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'TamilanDb',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tamilanseyalidb',
+        'USER': 'root',
+        'PASSWORD': 'Tamilan@Seyali2026',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': '3306'
     }
 }
 
-#
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'TamilanDbProd',
-#         'USER': 'postgres',
-#         'PASSWORD': 'tamilan2026',
-#         'HOST': 'tamilandbprodinstance.cy0mdq7skgda.us-east-2.rds.amazonaws.com',
-#         'PORT': '5432'
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'TamilanDevDb',
+#         'USER': 'admin',
+#         'PASSWORD': 'Tamilan2026',
+#         'HOST': 'tamilnad-db-instance.cy0mdq7skgda.us-east-2.rds.amazonaws.com',
+#         'PORT': '3306'
 #     }
 # }
 

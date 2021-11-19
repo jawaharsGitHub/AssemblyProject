@@ -16,19 +16,25 @@
                                 மாவட்டம்
                             </label>
                             <select class="form-control" id="ddlMaavattam" name="ddlMaavattam">
-
+                                {% for entry in districts %}
+                                <option value="{{ entry.Value }}">{{ entry.Display }}</option>
+                                {% endfor %}
                             </select>
                              <label class="form-check-label" for="ddlVattam">
                                 வட்டம்
                             </label>
                             <select class="form-control" id="ddlVattam" name="ddlVattam">
-
+                                 {% for entry in taluks %}
+                                <option value="{{ entry.talukcode }}">{{ entry.talukname }}</option>
+                                {% endfor %}
                             </select>
                              <label class="form-check-label" for="ddlVillage">
                                 வருவாய் கிராமம்
                             </label>
                             <select class="form-control" id="ddlVillage" name="ddlVillage">
-
+                                 {% for entry in villages %}
+                                <option value="{{ entry.villagecode }}">{{ entry.villagename }}</option>
+                                {% endfor %}
                             </select>
 
                              <button class="btn btn-primary" id="btnGenerate" name="btnGenerate" type="submit">1. முதல் தகவலை எடு</button>
