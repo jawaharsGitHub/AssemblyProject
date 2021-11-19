@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30ed6d91-45fb-4c27-88c8-7c2b39f30bb7" name="Changes" comment="first api call">
+    <list default="true" id="30ed6d91-45fb-4c27-88c8-7c2b39f30bb7" name="Changes" comment="fill dropdown from json in django">
+      <change afterPath="$PROJECT_DIR$/AssemblyApp/LearningApp/Literals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/AssemblyProject/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/Common/Tamilnadu/TNapi.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/Common/Tamilnadu/TNapi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssemblyApp/LearningApp/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/LearningApp/tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblyApp/adangalApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/adangalApp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AssemblyApp/templates/adangal/adangal_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/AssemblyApp/templates/adangal/adangal_home.html" afterDir="false" />
     </list>
@@ -317,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637265985711</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fill dropdown from json in django">
+      <created>1637341726070</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1637341726070</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -347,15 +352,21 @@
     <MESSAGE value="connected to production db" />
     <MESSAGE value="little change in varisu cert" />
     <MESSAGE value="first api call" />
-    <option name="LAST_COMMIT_MESSAGE" value="first api call" />
+    <MESSAGE value="fill dropdown from json in django" />
+    <option name="LAST_COMMIT_MESSAGE" value="fill dropdown from json in django" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/AssemblyApp/adangalApp/views.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/AssemblyApp/adangalApp/views.py</url>
           <line>10</line>
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

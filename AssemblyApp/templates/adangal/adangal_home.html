@@ -15,7 +15,7 @@
                             <label class="form-check-label" for="ddlMaavattam">
                                 மாவட்டம்
                             </label>
-                            <select class="form-control" id="ddlMaavattam" name="ddlMaavattam">
+                            <select class="form-control" id="ddlMaavattam" name="ddlMaavattam" onChange="form.submit();">
                                 {% for entry in districts %}
                                 <option value="{{ entry.Value }}">{{ entry.Display }}</option>
                                 {% endfor %}
@@ -23,7 +23,7 @@
                              <label class="form-check-label" for="ddlVattam">
                                 வட்டம்
                             </label>
-                            <select class="form-control" id="ddlVattam" name="ddlVattam">
+                            <select class="form-control" id="ddlVattam" name="ddlVattam" onChange="form.submit();">
                                  {% for entry in taluks %}
                                 <option value="{{ entry.talukcode }}">{{ entry.talukname }}</option>
                                 {% endfor %}
@@ -31,7 +31,7 @@
                              <label class="form-check-label" for="ddlVillage">
                                 வருவாய் கிராமம்
                             </label>
-                            <select class="form-control" id="ddlVillage" name="ddlVillage">
+                            <select class="form-control" id="ddlVillage" name="ddlVillage" onChange="form.submit();">
                                  {% for entry in villages %}
                                 <option value="{{ entry.villagecode }}">{{ entry.villagename }}</option>
                                 {% endfor %}
